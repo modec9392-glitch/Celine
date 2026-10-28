@@ -1,0 +1,6 @@
+{
+  "name": "CELINE MODE — Maison de mode & formations",
+  "description": "Maison de création de mode et de formation à Abomey-Calavi, Bénin. Vêtements sur mesure, catalogue et formations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,178 @@
+{
+  "entities": {
+    "product": {
+      "title": "Product",
+      "description": "A garment or item in the boutique catalogue",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier" },
+        "name": { "type": "string", "description": "Product title" },
+        "category": { "type": "string", "description": "Primary category" },
+        "categories": { "type": "array", "description": "List of category filter tags" },
+        "badge": { "type": "string", "description": "Optional badge" },
+        "price": { "type": "number", "description": "Price in FCFA" },
+        "description": { "type": "string", "description": "Detailed description" },
+        "sizes": { "type": "array", "description": "Available clothing sizes" },
+        "colors": { "type": "array", "description": "Available color choices" },
+        "available": { "type": "boolean", "description": "Stock availability" },
+        "images": { "type": "array", "description": "Image URLs or references" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" },
+        "updatedAt": { "type": "string", "description": "Last update timestamp" }
+      },
+      "required": ["name", "price"]
+    },
+    "galleryItem": {
+      "title": "Gallery Item",
+      "description": "A photo in the atelier and creation gallery",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier" },
+        "cat": { "type": "string", "description": "Category slug" },
+        "label": { "type": "string", "description": "Caption or title" },
+        "img": { "type": "string", "description": "Image URL or data" },
+        "createdAt": { "type": "string", "description": "Creation timestamp" }
+      },
+      "required": ["cat", "label", "img"]
+    },
+    "collectionItem": {
+      "title": "Collection",
+      "description": "Curated marquee collection showcased on the site",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "Collection ID" },
+        "tag": { "type": "string", "description": "Tag badge like Collection N°01" },
+        "title": { "type": "string", "description": "Collection headline" },
+        "subtitle": { "type": "string", "description": "Italic subtitle" },
+        "text": { "type": "string", "description": "Description paragraph" },
+        "anchor": { "type": "string", "description": "Section anchor position" },
+        "theme": { "type": "string", "description": "Visual theme (dark, light, gold)" },
+        "direction": { "type": "string", "description": "Scroll direction (normal, reverse)" },
+        "speed": { "type": "string", "description": "Scroll speed (normal, slow, fast)" },
+        "order": { "type": "number", "description": "Display order" },
+        "productIds": { "type": "array", "description": "Included product IDs" },
+        "extraImages": { "type": "array", "description": "Additional image URLs" }
+      },
+      "required": ["title"]
+    },
+    "order": {
+      "title": "Order",
+      "description": "A client order placed from the shop",
+      "type": "object",
+      "properties": {
+        "prenom": { "type": "string", "description": "Client first name" },
+        "nom": { "type": "string", "description": "Client last name" },
+        "telephone": { "type": "string", "description": "Phone number" },
+        "whatsapp": { "type": "string", "description": "WhatsApp number" },
+        "email": { "type": "string", "description": "Email address" },
+        "ville": { "type": "string", "description": "City" },
+        "adresse": { "type": "string", "description": "Delivery address" },
+        "remarque": { "type": "string", "description": "Order note" },
+        "items": { "type": "array", "description": "List of ordered items" },
+        "total": { "type": "number", "description": "Total amount in FCFA" },
+        "status": { "type": "string", "description": "Order status (nouveau, en_cours, termine)" },
+        "createdAt": { "type": "string", "description": "Timestamp" }
+      },
+      "required": ["prenom", "nom", "telephone", "ville"]
+    },
+    "customRequest": {
+      "title": "Custom Request",
+      "description": "A bespoke garment request submitted by a client",
+      "type": "object",
+      "properties": {
+        "prenom": { "type": "string", "description": "First name" },
+        "nom": { "type": "string", "description": "Last name" },
+        "telephone": { "type": "string", "description": "Phone" },
+        "whatsapp": { "type": "string", "description": "WhatsApp" },
+        "email": { "type": "string", "description": "Email" },
+        "type": { "type": "string", "description": "Type of garment" },
+        "genre": { "type": "string", "description": "Target gender/age" },
+        "occasion": { "type": "string", "description": "Occasion" },
+        "taille": { "type": "string", "description": "Size" },
+        "couleur": { "type": "string", "description": "Colors" },
+        "budget": { "type": "string", "description": "Budget" },
+        "description": { "type": "string", "description": "Project details" },
+        "status": { "type": "string", "description": "Status (nouveau, contacte, termine)" },
+        "createdAt": { "type": "string", "description": "Timestamp" }
+      },
+      "required": ["prenom", "nom", "telephone", "type", "description"]
+    },
+    "inscription": {
+      "title": "Training Enrollment",
+      "description": "An enrollment application for sewing and fashion courses",
+      "type": "object",
+      "properties": {
+        "prenom": { "type": "string", "description": "First name" },
+        "nom": { "type": "string", "description": "Last name" },
+        "telephone": { "type": "string", "description": "Phone" },
+        "whatsapp": { "type": "string", "description": "WhatsApp" },
+        "email": { "type": "string", "description": "Email" },
+        "formation": { "type": "string", "description": "Course name" },
+        "niveau": { "type": "string", "description": "Skill level" },
+        "message": { "type": "string", "description": "Personal note" },
+        "status": { "type": "string", "description": "Status" },
+        "createdAt": { "type": "string", "description": "Timestamp" }
+      },
+      "required": ["prenom", "nom", "telephone", "formation"]
+    },
+    "contactMessage": {
+      "title": "Contact Message",
+      "description": "A general inquiry from the contact form",
+      "type": "object",
+      "properties": {
+        "prenom": { "type": "string", "description": "First name" },
+        "nom": { "type": "string", "description": "Last name" },
+        "telephone": { "type": "string", "description": "Phone" },
+        "email": { "type": "string", "description": "Email" },
+        "sujet": { "type": "string", "description": "Subject" },
+        "message": { "type": "string", "description": "Message body" },
+        "createdAt": { "type": "string", "description": "Timestamp" }
+      },
+      "required": ["prenom", "nom", "telephone", "sujet", "message"]
+    },
+    "siteSettings": {
+      "title": "Site Settings",
+      "description": "Store configuration and global asset overrides",
+      "type": "object",
+      "properties": {
+        "whatsapp": { "type": "string", "description": "Phone number for WhatsApp" },
+        "whatsappDisplay": { "type": "string", "description": "Display format" },
+        "siteImages": { "type": "object", "description": "Keyed image URLs" },
+        "updatedAt": { "type": "string", "description": "Timestamp" }
+      }
+    }
+  },
+  "firestore": {
+    "/products/{productId}": {
+      "schema": { "$ref": "#/entities/product" },
+      "description": "Catalog of clothing creations"
+    },
+    "/gallery/{galleryId}": {
+      "schema": { "$ref": "#/entities/galleryItem" },
+      "description": "Atelier and fashion gallery photos"
+    },
+    "/collections/{collectionId}": {
+      "schema": { "$ref": "#/entities/collectionItem" },
+      "description": "Curated runway and theme collections"
+    },
+    "/orders/{orderId}": {
+      "schema": { "$ref": "#/entities/order" },
+      "description": "Customer purchase orders"
+    },
+    "/custom_requests/{requestId}": {
+      "schema": { "$ref": "#/entities/customRequest" },
+      "description": "Custom tailoring quotation requests"
+    },
+    "/inscriptions/{inscriptionId}": {
+      "schema": { "$ref": "#/entities/inscription" },
+      "description": "Course and workshop enrollments"
+    },
+    "/contact_messages/{messageId}": {
+      "schema": { "$ref": "#/entities/contactMessage" },
+      "description": "Contact form inquiries"
+    },
+    "/settings/{settingId}": {
+      "schema": { "$ref": "#/entities/siteSettings" },
+      "description": "Global website settings and asset references"
+    }
+  }
+}
